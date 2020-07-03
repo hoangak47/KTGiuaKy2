@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Phone.dbo.InfoPhone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InfoPhone">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="GeneralNote" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="PhoneModelStoreContainer">
+    <EntitySet Name="InfoPhone" EntityType="Self.InfoPhone" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [InfoPhone].[ID] AS [ID], 
+    [InfoPhone].[Model] AS [Model], 
+    [InfoPhone].[Price] AS [Price], 
+    [InfoPhone].[GeneralNote] AS [GeneralNote]
+    FROM [dbo].[InfoPhone] AS [InfoPhone]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
